@@ -10,7 +10,7 @@ public class AnnotationDemoApp {
 
         // get the bean from spring container
         // The name must be the same as defined at TennisCoach.java in the component annotation.
-        Coach theCoach = context.getBean("thatSillyCoach", Coach.class);
+        Coach theCoach = context.getBean("tennisCoach", Coach.class);
 
         // call a method on the bean
         System.out.println(theCoach.getDailyWorkout());
