@@ -6,6 +6,9 @@
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- add entry to enable component scanning -->
+	<context:component-scan base-package="com.jesusmiramontes.spring_and_hibernate_course"/>
 </beans>
 
 
