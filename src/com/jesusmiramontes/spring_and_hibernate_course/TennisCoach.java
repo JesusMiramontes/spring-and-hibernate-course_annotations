@@ -33,9 +33,16 @@ public class TennisCoach implements Coach{
         return fortuneService.getFortune();
     }
 
-    @Autowired // Autowired via setter
+    //@Autowired // Autowired via setter
     public void setFortuneService(FortuneService fortuneService) {
         System.out.println("Inside setter.");
+        this.fortuneService = fortuneService;
+    }
+
+    // Spring can Autowire to any method. Not necessary a setter.
+    @Autowired
+    private void anyMethod(FortuneService fortuneService){
+        System.out.println("Inside anyMethod.");
         this.fortuneService = fortuneService;
     }
 }
