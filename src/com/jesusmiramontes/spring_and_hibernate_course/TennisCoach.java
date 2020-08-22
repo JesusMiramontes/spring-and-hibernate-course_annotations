@@ -12,6 +12,12 @@ import org.springframework.stereotype.Component;
 
 @Component  // @Component("thatSillyCoach")
 public class TennisCoach implements Coach{
+    /*
+    * When the AutoWired annotation is on a property.
+    * Spring can access the properties even when they are private.
+    * Uses Java reflection.
+    * */
+    @Autowired
     private FortuneService fortuneService;
 
     public TennisCoach() {
@@ -40,7 +46,7 @@ public class TennisCoach implements Coach{
     }
 
     // Spring can Autowire to any method. Not necessary a setter.
-    @Autowired
+    //@Autowired
     private void anyMethod(FortuneService fortuneService){
         System.out.println("Inside anyMethod.");
         this.fortuneService = fortuneService;
