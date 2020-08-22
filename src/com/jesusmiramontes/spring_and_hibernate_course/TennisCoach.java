@@ -1,5 +1,6 @@
 package com.jesusmiramontes.spring_and_hibernate_course;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 //Spring will scan the files and register this bean automatically
@@ -11,8 +12,20 @@ import org.springframework.stereotype.Component;
 
 @Component  // @Component("thatSillyCoach")
 public class TennisCoach implements Coach{
+    private FortuneService fortuneService;
+
+    @Autowired
+    public TennisCoach(FortuneService fortuneService) {
+        this.fortuneService = fortuneService;
+    }
+
     @Override
     public String getDailyWorkout() {
         return "Practice your backhand volley";
+    }
+
+    @Override
+    public String getDailyFortune() {
+        return fortuneService.getFortune();
     }
 }
