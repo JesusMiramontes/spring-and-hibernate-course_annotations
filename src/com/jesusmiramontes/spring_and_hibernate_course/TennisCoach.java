@@ -19,7 +19,7 @@ public class TennisCoach implements Coach{
     * Uses Java reflection.
     * */
     @Autowired
-    @Qualifier("fortuneImplementation")
+    @Qualifier("randomService")
     private FortuneService fortuneService;
 
     public TennisCoach() {
