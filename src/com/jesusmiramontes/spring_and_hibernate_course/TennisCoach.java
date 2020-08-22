@@ -14,7 +14,11 @@ import org.springframework.stereotype.Component;
 public class TennisCoach implements Coach{
     private FortuneService fortuneService;
 
-    @Autowired
+    public TennisCoach() {
+        System.out.println("Inside default constructor.");
+    }
+
+    //@Autowired // Autowired via constructor
     public TennisCoach(FortuneService fortuneService) {
         this.fortuneService = fortuneService;
     }
@@ -27,5 +31,11 @@ public class TennisCoach implements Coach{
     @Override
     public String getDailyFortune() {
         return fortuneService.getFortune();
+    }
+
+    @Autowired // Autowired via setter
+    public void setFortuneService(FortuneService fortuneService) {
+        System.out.println("Inside setter.");
+        this.fortuneService = fortuneService;
     }
 }
