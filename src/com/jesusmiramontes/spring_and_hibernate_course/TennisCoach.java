@@ -2,6 +2,7 @@ package com.jesusmiramontes.spring_and_hibernate_course;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 //Spring will scan the files and register this bean automatically
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Component;
  */
 
 @Component  // @Component("thatSillyCoach")
+@Scope("prototype")
 public class TennisCoach implements Coach{
     /*
     * When the AutoWired annotation is on a property.
