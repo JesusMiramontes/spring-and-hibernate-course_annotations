@@ -5,6 +5,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 //Spring will scan the files and register this bean automatically
 
 /*
@@ -13,7 +16,6 @@ import org.springframework.stereotype.Component;
  */
 
 @Component  // @Component("thatSillyCoach")
-@Scope("prototype")
 public class TennisCoach implements Coach{
     /*
     * When the AutoWired annotation is on a property.
@@ -26,6 +28,18 @@ public class TennisCoach implements Coach{
 
     public TennisCoach() {
         System.out.println("Inside default constructor.");
+    }
+
+    // init method
+    @PostConstruct
+    public void postConstruct(){
+        System.out.println("Inside postConstruct method");
+    }
+
+    // destroy method
+    @PreDestroy
+    public void destroyMethod(){
+        System.out.println("Inside predestroy method");
     }
 
     //@Autowired // Autowired via constructor
